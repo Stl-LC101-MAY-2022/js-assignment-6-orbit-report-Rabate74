@@ -14,7 +14,7 @@ export class AppComponent {
 
 	constructor() {
 		this.sourceList = [];
-		this.displayList = [];
+		// this.displayList = [];
 		let satellitesUrl = 'https://handlers.education.launchcode.org/static/satellites.json';
 
 		window.fetch(satellitesUrl).then(function (response) {
@@ -40,18 +40,7 @@ export class AppComponent {
 	search(searchTerm: string): void {
 		let matchingSatellites: Satellite[] = [];
 		searchTerm = searchTerm.toLowerCase();
-		for(let i=0; i < this.sourceList.length; i++) {
-			let name = this.sourceList[i].name.toLowerCase();
-			if (name.indexOf(searchTerm) >= 0) {
-				matchingSatellites.push(this.sourceList[i]);
-			}
-		}
-		for(let i=0; i < this.sourceList.length; i++) {
-      let name = this.sourceList[i].name.toLowerCase();
-      if (name.indexOf(searchTerm) >= 0) {
-        matchingSatellites.push(this.sourceList[i]);
-      }
-  }
+	
 
 
 		this.sourceList.map((s : Satellite) => {
